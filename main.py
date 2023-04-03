@@ -47,11 +47,11 @@ async def beitritt(ctx, user: Option(discord.Member, "Der betroffene Nutzer"), r
     await user.add_roles(role)
     await ctx.respond("", embed=embed)
 
-@bot.slash_command(description="Nimmt einen User in das Team auf")
+@bot.slash_command(description="Entfernt einen User aus dem Team")
 async def teamkick(ctx, user: Option(discord.Member, "Der betroffene Nutzer")):
     embed = discord.Embed(
         title="TEAM | Team-Information",
-        color=discord.Colour.dark_green()
+        color=discord.Colour.red()
     )
     embed_message = "**======================================================\n\nTEAMUPDATE\n\n{0} hat das Serverteam Verlassen\nWir wünschen dir viel Erfolg auf deinem weiteren weg,\nund danken dir für deine Geleistete Arbeit!\n\n======================================================**"
     embed.add_field(name="", value=embed_message.format(user.mention))
@@ -72,5 +72,14 @@ async def teamkick(ctx, user: Option(discord.Member, "Der betroffene Nutzer")):
     await user.remove_roles(discord.utils.get(ctx.guild.roles, name="[Ticket] SKYBLOCK"))
     await user.remove_roles(discord.utils.get(ctx.guild.roles, name="[Ticket] SURVIVAL"))
     await user.remove_roles(discord.utils.get(ctx.guild.roles, name="MEDIA TEAM"))
+
+@bot.slash_command(description="Nimmt einen User in das Team auf")
+async def announce (ctx, message: Option(discord.SlashCommandOptionType.string,"Die Ankündigung")):
+    embed = discord.Embed(
+        title="ANKÜNDIGUNG",
+        color=discord.Colour.dark_blue()
+    )
+    embed.add_field(name="", value=message)
+    await ctx.respond("", embed=embed)
 
 bot.run(os.getenv('TOKEN'))
