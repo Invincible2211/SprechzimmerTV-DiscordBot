@@ -3,7 +3,7 @@ import string
 
 import discord
 import dotenv
-from discord import Option
+from discord import Option, guild
 
 dotenv.load_dotenv()
 bot = discord.Bot(
@@ -46,5 +46,31 @@ async def beitritt(ctx, user: Option(discord.Member, "Der betroffene Nutzer"), r
     embed.add_field(name="", value=embed_message.format(user.mention, role.mention))
     await user.add_roles(role)
     await ctx.respond("", embed=embed)
+
+@bot.slash_command(description="Nimmt einen User in das Team auf")
+async def teamkick(ctx, user: Option(discord.Member, "Der betroffene Nutzer")):
+    embed = discord.Embed(
+        title="TEAM | Team-Information",
+        color=discord.Colour.dark_green()
+    )
+    embed_message = "**======================================================\n\nTEAMUPDATE\n\n{0} hat das Serverteam Verlassen\nWir wünschen dir viel Erfolg auf deinem weiteren weg,\nund danken dir für deine Geleistete Arbeit!\n\n======================================================**"
+    embed.add_field(name="", value=embed_message.format(user.mention))
+    await ctx.respond("", embed=embed)
+    await user.remove_roles(discord.utils.get(ctx.guild.roles, name="ADMIN"))
+    await user.remove_roles(discord.utils.get(ctx.guild.roles, name="DEVELOPER"))
+    await user.remove_roles(discord.utils.get(ctx.guild.roles, name="TEST-DEVELOPER"))
+    await user.remove_roles(discord.utils.get(ctx.guild.roles, name="SR.MODERATOR"))
+    await user.remove_roles(discord.utils.get(ctx.guild.roles, name="MODERATOR"))
+    await user.remove_roles(discord.utils.get(ctx.guild.roles, name="SUPPORTER"))
+    await user.remove_roles(discord.utils.get(ctx.guild.roles, name="T-SUPPORTER"))
+    await user.remove_roles(discord.utils.get(ctx.guild.roles, name="BUILDER"))
+    await user.remove_roles(discord.utils.get(ctx.guild.roles, name="Server-Team"))
+    await user.remove_roles(discord.utils.get(ctx.guild.roles, name="SUPPORT"))
+    await user.remove_roles(discord.utils.get(ctx.guild.roles, name="[Ticket] SUPPORT"))
+    await user.remove_roles(discord.utils.get(ctx.guild.roles, name="[Ticket] BEWERBUNGEN"))
+    await user.remove_roles(discord.utils.get(ctx.guild.roles, name="[Ticket] CITYBUILD"))
+    await user.remove_roles(discord.utils.get(ctx.guild.roles, name="[Ticket] SKYBLOCK"))
+    await user.remove_roles(discord.utils.get(ctx.guild.roles, name="[Ticket] SURVIVAL"))
+    await user.remove_roles(discord.utils.get(ctx.guild.roles, name="MEDIA TEAM"))
 
 bot.run(os.getenv('TOKEN'))
