@@ -36,4 +36,15 @@ async def rollenupdate(ctx, user: Option(discord.Member, "Der betroffene Nutzer"
     await user.add_roles(role_new)
     await ctx.respond("", embed=embed)
 
+@bot.slash_command(description="Nimmt einen User in das Team auf")
+async def beitritt(ctx, user: Option(discord.Member, "Der betroffene Nutzer"), role: Option(discord.Role, "Die neue Rolle")):
+    embed = discord.Embed(
+        title="TEAM | Team-Information",
+        color=discord.Colour.dark_green()
+    )
+    embed_message = "**======================================================\n\nTEAMUPDATE\n\n{0} wurde als {1} ins Server-Team aufgenommen!\n\n======================================================**"
+    embed.add_field(name="", value=embed_message.format(user.mention, role.mention))
+    await user.add_roles(role)
+    await ctx.respond("", embed=embed)
+
 bot.run(os.getenv('TOKEN'))
