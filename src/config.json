@@ -1,0 +1,66 @@
+{
+  "team_roles": [
+    "ADMIN",
+    "DEVELOPER",
+    "TEST-DEVELOPER",
+    "SR.MODERATOR",
+    "MODERATOR",
+    "SUPPORTER",
+    "T-SUPPORTER",
+    "BUILDER",
+    "Server-Team",
+    "SUPPORT",
+    "[Ticket] SUPPORT",
+    "[Ticket] BEWERBUNGEN",
+    "[Ticket] CITYBUILD",
+    "[Ticket] SKYBLOCK",
+    "[Ticket] SURVIVAL",
+    "MEDIA TEAM"
+  ],
+  "commands": {
+    "warn": {
+      "description": "Verwarnt ein Teammitglied",
+      "message": "**======================================================\n\nTEAMVERWARNUNG\n\nName | **{0}**\nGrund | **{1}**\n\n======================================================**",
+      "error_message": "",
+      "argument_description": {
+        "user": "Der zu verwarnende Nutzer",
+        "message": "Der Grund für die Verwarnung"
+      }
+    },
+    "role_update": {
+      "description": "Updatet die Rolle eines Teammitglieds",
+      "message": "**======================================================\n\nTEAMUPDATE\n\n{0} hat nun den Rang {1}\n\nName | {0}\nAlter Rang | {2}\nNeuer Rang | {1}\n\n======================================================**",
+      "error_message": "Der Befehl konnte aufgrund von fehlenden Berechtigungnen nicht ausgeführt werden. Gehe sicher, dass die Rolle 'V2 | SprechZimmerTV - Netzwerk' höher ist, als {0} und {1}!",
+      "argument_description": {
+        "user": "Der betroffene Nutzer",
+        "old_role": "Die alte Rolle",
+        "new_role": "Die neue Rolle"
+      }
+    },
+    "team_join": {
+      "description": "Nimmt einen User in das Team auf",
+      "message": "**======================================================\n\nTEAMUPDATE\n\n{0} wurde als {1} ins Server-Team aufgenommen!\n\n======================================================**",
+      "error_message": "Der Befehl konnte aufgrund von fehlenden Berechtigungnen nicht ausgeführt werden. Gehe sicher, dass die Rolle 'V2 | SprechZimmerTV - Netzwerk' höher ist, als {0}!",
+      "argument_description": {
+        "user": "Der betroffene Nutzer",
+        "role": "Die neue Rolle"
+      }
+    },
+    "team_kick": {
+      "description": "Entfernt einen User aus dem Team",
+      "message": "**======================================================\n\nTEAMUPDATE\n\n{0} hat das Serverteam Verlassen\nWir wünschen dir viel Erfolg auf deinem weiteren weg,\nund danken dir für deine Geleistete Arbeit!\n\n======================================================**",
+      "error_message": "Der Befehl konnte aufgrund von fehlenden Berechtigungnen nicht ausgeführt werden. Gehe sicher, dass die Rolle 'V2 | SprechZimmerTV - Netzwerk' höher ist, als alle Teamrollen des Befehlziels!",
+      "argument_description": {
+        "user": "Der betroffene Nutzer"
+      }
+    },
+    "announce": {
+      "description": "Veröffentlicht eine Ankündigung",
+      "message": "",
+      "error_message": "",
+      "argument_description": {
+        "message": "Die Ankündigung"
+      }
+    }
+  }
+}
